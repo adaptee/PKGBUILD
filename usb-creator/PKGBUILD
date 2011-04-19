@@ -2,9 +2,9 @@
 # Contributor: Jacco Koning <archlinux@menollo.nl>, with help from qwak
 
 pkgname=usb-creator
-pkgver=0.2.28
-pkgrel=1
-pkgdesc="Create bootable USB from a LiveCD or disc image of Ubuntu. "
+pkgver=0.2.25
+pkgrel=4
+pkgdesc="Create bootable USB stick from a LiveCD of Ubuntu "
 arch=('i686' 'x86_64')
 url="https://launchpad.net/usb-creator"
 license=('GPL3')
@@ -22,6 +22,7 @@ optdepends=(
             'gnome-python: for GNOME frontend'
            )
 makedepends=('python-distutils-extra')
+install=usb-creator.install
 source=(    "https://launchpad.net/ubuntu/+archive/primary/+files/usb-creator_${pkgver}.tar.gz"
             "0001-change-the-path-of-parted.patch"
             "0002-remove-blackcode-using-lsb-release-and-python-debian.patch"
@@ -31,7 +32,7 @@ md5sums=('e52f2bde66a0c4801f964647b0ddf4f3'
          '290389e299688274592c5697578ba4cd')
 
 build() {
-    local extractdir="${srcdir}/${pkgname}.trunk"
+    local extractdir="${srcdir}/${pkgname}"
 
     cd "${extractdir}"
 
@@ -70,6 +71,3 @@ build() {
 
 }
 
-md5sums=('0e0efba4b531bd3af1e227a3cc10368f'
-         'bc80c990f59f7cab2db8cfa76746be61'
-         '290389e299688274592c5697578ba4cd')
