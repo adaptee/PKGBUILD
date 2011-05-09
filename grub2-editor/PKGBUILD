@@ -8,7 +8,7 @@ pkgdesc="A KDE4 control module for configuring the GRUB2 bootloader."
 arch=(i686 x86_64)
 url="http://kde-apps.org/content/show.php?content=139643"
 license=(GPLv3)
-depends=('kdebase-workspace' )
+depends=('kdebase-workspace' 'hwinfo' 'imagemagick' 'libwmf' )
 makedepends=('cmake' 'automoc4')
 source=("http://prdownloads.sourceforge.net/project/${_pkgname}/${pkgver}/${_pkgname}-${pkgver}.tar.gz")
 md5sums=('0426295f167b1bba007be48e80330894')
