@@ -3,7 +3,7 @@
 pkgname=flashplugin-settings-kcm
 pkgver=10.3.181.14
 pkgrel=1
-pkgdesc='KDE control module for setting up flashplugin'
+pkgdesc='KDE control module for setting up flashplugin(32 bit only)'
 url='http://get.adobe.com/flashplayer'
 license=('custom')
 arch=('i686') 
