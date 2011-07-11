@@ -25,6 +25,9 @@ build() {
     fi
 
     mkdir build && cd build
+
+    # temporary workaround with FindQt4.cmake
+    sed -i '/QT_MIN_VERSION/d' ../CMakeLists.txt
     cmake -DCMAKE_INSTALL_PREFIX=/usr ../
     make
 }
@@ -34,5 +37,3 @@ package()
     cd ${srcdir}/${pkgname}-${pkgver}/build
     make DESTDIR=${pkgdir} install
 }
-
-
