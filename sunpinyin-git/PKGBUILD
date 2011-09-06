@@ -2,7 +2,7 @@
 # Contributor: Liu Chang <goduck777@gmail.com>
  
 pkgname=sunpinyin-git
-pkgver=20110711
+pkgver=20110906
 pkgrel=1
 pkgdesc='A statistical language model based pinyin IME by Sun.'
 url='http://code.google.com/p/sunpinyin/'
@@ -42,10 +42,10 @@ build() {
   ln -sf ${srcdir}/lm_sc.t3g.arpa.tar.bz2 raw/lm_sc.t3g.arpa.tar.bz2
   ln -sf ${srcdir}/dict.utf8.tar.bz2 raw/dict.utf8.tar.bz2
 
-  sed -i -e "s|python|python2|" python/*.py python/importer/*.py
+  sed -i -e "s|python|python2|" python/*.py python/importer/*.py SConstruct
   scons --prefix=/usr
   scons install --prefix=/usr --install-sandbox=$pkgdir || return 1
 
 }
-md5sums=('d2bc8dbf56f7b49e5dff2e94794fa980'
-         '7b4068d6ad0a7c307ba997fb0a33ba63')
+md5sums=('7a66d55a515959bbf69cb5480281afa0'
+         '5fe50a8a4d889e17c17d64d4241911d0')
