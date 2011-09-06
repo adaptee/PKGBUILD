@@ -8,7 +8,7 @@ arch=('i686' 'x86_64')
 url="http://opendesktop.org/content/show.php?content=143976"
 license=('GPL')
 depends=('kdelibs')
-makedepends=('cmake')
+makedepends=('cmake' 'automoc4')
 source=("https://api.opensuse.org/public/source/home:arkascha/kio-clipboard/$pkgname-$pkgver.tar.bz2")
 
 build() {
