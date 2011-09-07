@@ -1,7 +1,7 @@
 # Maintainer: Jekyll Wu<adaptee [at] gmail [dot com>
 
 pkgname=gnome-shell-extension-ibus-panel
-pkgver=20110710
+pkgver=20110904
 pkgrel=1
 pkgdesc="A Gnome Shell extension for ibus panel "
 arch=('i686' 'x86_64')
