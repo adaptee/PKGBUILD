@@ -1,7 +1,7 @@
 # Maintainer : Jekyll Wu <adaptee [at] gmail [dot] com>
 
 pkgname=ibus-gjs-git
-pkgver=20110906
+pkgver=20110913
 pkgrel=1
 pkgdesc="Next Generation Input Bus for Linux, with nice integration with gnome-shell"
 arch=('i686' 'x86_64')
@@ -29,6 +29,10 @@ build() {
   rm -rf "${srcdir}/${_gitname}-build"
   cp -r "${srcdir}/${_gitname}" "${srcdir}/${_gitname}-build"
   cd "${srcdir}/${_gitname}-build"
+
+  # master branch does not work with gnome-shell from [extra]
+  git branch 3.0.2 origin/gnome-shell-3.0.2
+  git checkout 3.0.2
 
   msg "Starting make..."
 
