@@ -3,13 +3,12 @@
 pkgname=ibus-gjs-git
 pkgver=20110913
 pkgrel=1
-pkgdesc="Next Generation Input Bus for Linux, with nice integration with gnome-shell"
+pkgdesc="GNOME-Shell GJS Plugin for IBus"
 arch=('i686' 'x86_64')
 license=('LGPL')
 url="http://ibus.googlecode.com"
-depends=( 'ibus-git' )
+depends=( 'ibus-git' 'gnome-shell=3.0.2' 'gjs=0.7.14' )
 makedepends=('git')
-#install=ibus.install
 
 _gitname="ibus-gjs"
 _gitroot="git://github.com/fujiwarat/ibus-gjs"
