@@ -1,0 +1,35 @@
+# maintainer: Jekyll Wu <adaptee [at] gmail dot com >
+
+pkgname=kup
+pkgver=0.1
+pkgrel=1
+pkgdesc="KDE4 control module for Ufw(Uncomplicated Firewall)"
+arch=('i686' 'x86_64')
+url="http://kde-apps.org/content/show.php/Kup+Backup+System?content=147465"
+license=('GPL')
+depends=('bup' 'kdebase-workspace' )
+makedepends=('automoc4' 'cmake' )
+source=("http://opendesktop.org/CONTENT/content-files/147465-${pkgname}-${pkgver}.tar.bz2")
+
+build() {
+
+  cd "${srcdir}/${pkgname}-${pkgver}/"
+
+  if [ -d build ] ; then
+    rm build -rf
+  fi
+
+  mkdir build && cd build
+
+  cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+  make
+
+
+}
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}/build"
+  make DESTDIR="${pkgdir}" install || return 1
+}
+
+md5sums=('0cc0d1fda86d331eaf2c7a8832559024')
