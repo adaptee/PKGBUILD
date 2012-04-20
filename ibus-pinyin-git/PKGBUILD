@@ -4,7 +4,7 @@
 # Contributor: Lee.MaRS<leemars at gmail.com>
 
 pkgname=ibus-pinyin-git
-pkgver=20110629
+pkgver=20111020
 pkgrel=1
 pkgdesc="The PinYin Engine for IBus Input Framework"
 arch=('i686' 'x86_64')
