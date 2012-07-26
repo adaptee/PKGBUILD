@@ -2,7 +2,7 @@
 # Contributor: Dany Martineau <dany.luc.martineau gmail com>
 
 pkgname=phonon-git
-pkgver=20110224
+pkgver=20120726
 pkgrel=1
 pkgdesc='The multimedia API of KDE 4, git version '
 arch=('i686' 'x86_64')
@@ -13,6 +13,7 @@ optdepends=('pulseaudio: PulseAudio support')
 makedepends=('cmake' 'automoc4' 'pkgconfig' 'git')
 conflicts=('phonon')
 provides=('phonon')
+options=('!strip')
 
 _gitroot='git://anongit.kde.org/phonon.git'
 _gitname='phonon'
@@ -38,7 +39,7 @@ build() {
     cd ${srcdir}/build
     msg "Starting make..."
     cmake  \
-            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_BUILD_TYPE=debugfull \
             -DCMAKE_INSTALL_PREFIX=/usr \
             -DCMAKE_SKIP_RPATH=ON \
             -DCMAKE_{SHARED,MODULE,EXE}_LINKER_FLAGS='-Wl,--no-undefined -Wl,--as-needed' \
