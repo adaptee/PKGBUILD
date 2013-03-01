@@ -4,17 +4,18 @@
 # Contributor: Geoffroy Carrier <geoffroy.carrier@koon.fr>
 
 pkgname=qbittorrent
-pkgver=3.0.4
-pkgrel=1
+pkgver=3.0.8
+pkgrel=3
 pkgdesc="A bittorrent client written in C++ / Qt4 using the good libtorrent library"
 arch=('i686' 'x86_64')
 url="http://www.qbittorrent.org/"
 license=('GPL')
-depends=('qt' 'libtorrent-rasterbar' 'boost-libs' 'xdg-utils' 'geoip')
-makedepends=('boost')
+depends=('qt4' 'libtorrent-rasterbar' 'boost-libs' 'xdg-utils')
+makedepends=('boost' 'which')
 optdepends=('python: needed for search')
 install="qbittorrent.install"
 source=("http://downloads.sourceforge.net/sourceforge/qbittorrent/${pkgname}-${pkgver}.tar.xz")
+
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
@@ -30,4 +31,4 @@ package() {
   make INSTALL_ROOT=${pkgdir} install
 }
 
-md5sums=('ce2f76770208cf90d52f294cffc23a80')
+md5sums=('9e2b2e4c2d027b80676e94360836aee7')
