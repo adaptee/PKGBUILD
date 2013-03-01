@@ -1,0 +1,42 @@
+# Contributor: Kyle Keen <keenerd@gmail.com>
+pkgname=razor-qt-git
+pkgver=20130301
+pkgrel=1
+pkgdesc="A lightweight desktop environemnt written in Qt"
+url="http://razor-qt.org"
+arch=('i686' 'x86_64')
+license="GPL2"
+depends=('qt4' 'polkit-qt' 'udev' 'libxrender' 'libxcomposite' 'libxdamage' 'zlib' 'file' 'libxcursor' 'libstatgrab')
+optdepends=('openbox: Razor-qt works with various WM, but most of Razor developers use Openbox.'
+            'upower: To Shutdown/Reboot from Razor'
+            'udisks: For the Removable Media plugin to work'
+            )
+makedepends=('git' 'cmake')
+
+_gitroot="git://github.com/Razor-qt/razor-qt.git"
+_gitname="razor-qt"
+
+build() {
+  cd "$srcdir"
+  msg "Connecting to github..."
+
+  if [ -d "$srcdir"/${_gitname} ] ; then
+    cd ${_gitname} && git pull origin
+    msg "The local files are updated."
+  else
+    git clone --depth 1 ${_gitroot}
+  fi
+
+  msg "GIT checkout done or server timeout"
+  msg "Starting make..."
+
+  cd "$srcdir/$_gitname"
+
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DQT_QMAKE_EXECUTABLE=qmake4 -DENABLE_LIGHTDM_GREETER=OFF -DMODULE_LIGHTDM=OFF .
+  make
+}
+
+package() {
+  cd "$srcdir/$_gitname"
+  make DESTDIR="$pkgdir/" install
+}
